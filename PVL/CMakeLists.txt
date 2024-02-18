@@ -25,7 +25,7 @@ if (WIN32)
 	#
 	# TODO this hack copies the static lib over the import lib
 	# because the latter doesn't have symbols for static data fields
-	add_custom_command(TARGET PVL POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:sllPVL> PVL.lib)
+	add_custom_command(TARGET PVL POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:sllPVL> "$<CONFIGURATION>/PVL.lib")
 else()
 	set_target_properties(sllPVL PROPERTIES OUTPUT_NAME PVL)
 endif()

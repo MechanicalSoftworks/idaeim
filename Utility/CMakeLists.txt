@@ -19,7 +19,7 @@ if (WIN32)
 	#
 	# TODO this hack copies the static lib over the import lib
 	# because the latter doesn't have symbols for static data fields
-	add_custom_command(TARGET Utility POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:sllUtility> Utility.lib)
+	add_custom_command(TARGET Utility POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:sllUtility> "$<CONFIGURATION>/Utility.lib")
 
 else()
 	set_target_properties(sllUtility PROPERTIES OUTPUT_NAME Utility)
